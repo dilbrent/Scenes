@@ -62,3 +62,8 @@ sceneform.asset('sampledata/models/robot.fbx',
         'default',
         'sampledata/models/robot.sfa',
         'src/main/assets/robot')
+
+sceneform.asset('sampledata/models/scene.fbx',
+        'default',
+        'sampledata/models/scene.sfa',
+        'src/main/assets/scene')

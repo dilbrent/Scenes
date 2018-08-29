@@ -48,7 +48,7 @@ public class SceneActivity extends AppCompatActivity {
     // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
     ModelRenderable.builder()
         //.setSource(this, R.raw.whatever) // this loads from raw
-        .setSource(this, Uri.parse("robot.sfb"))  // use this to load from asset folder.
+        .setSource(this, Uri.parse("scene.sfb"))  // use this to load from asset folder.
         .build()
         .thenAccept(renderable -> sceneRenderable = renderable)
         .exceptionally(
