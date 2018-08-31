@@ -16,6 +16,7 @@ import com.google.ar.core.Anchor;
 import com.google.ar.core.HitResult;
 import com.google.ar.core.Plane;
 import com.google.ar.sceneform.AnchorNode;
+import com.google.ar.sceneform.math.Vector3;
 import com.google.ar.sceneform.rendering.ModelRenderable;
 import com.google.ar.sceneform.ux.ArFragment;
 import com.google.ar.sceneform.ux.TransformableNode;
@@ -48,7 +49,7 @@ public class SceneActivity extends AppCompatActivity {
     // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
     ModelRenderable.builder()
         //.setSource(this, R.raw.whatever) // this loads from raw
-        .setSource(this, Uri.parse("scene.sfb"))  // use this to load from asset folder.
+        .setSource(this, Uri.parse("test.sfb"))  // use this to load from asset folder.
         .build()
         .thenAccept(renderable -> sceneRenderable = renderable)
         .exceptionally(
@@ -75,6 +76,12 @@ public class SceneActivity extends AppCompatActivity {
           TransformableNode node = new TransformableNode(arFragment.getTransformationSystem());
           node.setParent(anchorNode);
           node.setRenderable(sceneRenderable);
+          float scale=.0005f;
+          node.getScaleController().setMaxScale(5.0f);
+          node.getScaleController().setMinScale(0.01f);
+          node.getScaleController().setElasticity(.01f);
+          node.getScaleController().setSensitivity(.01f);
+          node.setLocalScale(new Vector3(scale, scale, scale));
           node.select();
         });
   }
