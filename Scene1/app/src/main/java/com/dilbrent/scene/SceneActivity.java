@@ -49,7 +49,7 @@ public class SceneActivity extends AppCompatActivity {
     // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
     ModelRenderable.builder()
         //.setSource(this, R.raw.whatever) // this loads from raw
-        .setSource(this, Uri.parse("test.sfb"))  // use this to load from asset folder.
+        .setSource(this, Uri.parse("mansion1.sfb"))  // use this to load from asset folder.
         .build()
         .thenAccept(renderable -> sceneRenderable = renderable)
         .exceptionally(
@@ -74,14 +74,14 @@ public class SceneActivity extends AppCompatActivity {
 
           // Create the transformable scene and add it to the anchor.
           TransformableNode node = new TransformableNode(arFragment.getTransformationSystem());
+          float scale=1.0f;
+          node.setLocalScale(new Vector3(scale, scale, scale));  // set BEFORE setParent()
           node.setParent(anchorNode);
           node.setRenderable(sceneRenderable);
-          float scale=.0005f;
           node.getScaleController().setMaxScale(5.0f);
-          node.getScaleController().setMinScale(0.01f);
+          node.getScaleController().setMinScale(0.005f);
           node.getScaleController().setElasticity(.01f);
           node.getScaleController().setSensitivity(.01f);
-          node.setLocalScale(new Vector3(scale, scale, scale));
           node.select();
         });
   }
