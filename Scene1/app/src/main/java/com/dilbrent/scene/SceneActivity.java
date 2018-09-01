@@ -29,6 +29,8 @@ public class SceneActivity extends AppCompatActivity {
   private static final double MIN_OPENGL_VERSION = 3.0;
 
   private ArFragment arFragment;
+  private ModelRenderable stageRenderable;
+  private boolean stageDone=false;
   private ModelRenderable sceneRenderable;
 
   @Override
@@ -48,20 +50,33 @@ public class SceneActivity extends AppCompatActivity {
     // When you build a Renderable, Sceneform loads its resources in the background while returning
     // a CompletableFuture. Call thenAccept(), handle(), or check isDone() before calling get().
     ModelRenderable.builder()
-        //.setSource(this, R.raw.whatever) // this loads from raw
-        .setSource(this, Uri.parse("mansion1.sfb"))  // use this to load from asset folder.
+        .setSource(this, Uri.parse("model.sfb"))
         .build()
-        .thenAccept(renderable -> sceneRenderable = renderable)
+        .thenAccept(renderable -> stageRenderable = renderable)
         .exceptionally(
             throwable -> {
               Toast toast =
-                  Toast.makeText(this, "Unable to load renderable", Toast.LENGTH_LONG);
+                  Toast.makeText(this, "Unable to load stage", Toast.LENGTH_LONG);
               toast.setGravity(Gravity.CENTER, 0, 0);
               toast.show();
               return null;
             });
 
-    arFragment.setOnTapArPlaneListener(
+      ModelRenderable.builder()
+              //.setSource(this, R.raw.whatever) // this loads from raw
+              .setSource(this, Uri.parse("test2.sfb"))  // use this to load from asset folder.
+              .build()
+              .thenAccept(renderable -> sceneRenderable = renderable)
+              .exceptionally(
+                      throwable -> {
+                          Toast toast =
+                                  Toast.makeText(this, "Unable to load renderable", Toast.LENGTH_LONG);
+                          toast.setGravity(Gravity.CENTER, 0, 0);
+                          toast.show();
+                          return null;
+                      });
+
+      arFragment.setOnTapArPlaneListener(
         (HitResult hitResult, Plane plane, MotionEvent motionEvent) -> {
           if (sceneRenderable == null) {
             return;
@@ -72,9 +87,22 @@ public class SceneActivity extends AppCompatActivity {
           AnchorNode anchorNode = new AnchorNode(anchor);
           anchorNode.setParent(arFragment.getArSceneView().getScene());
 
-          // Create the transformable scene and add it to the anchor.
+          if (!stageDone) {
+              TransformableNode node0 = new TransformableNode(arFragment.getTransformationSystem());
+              float scale0 = 5.0f;
+              node0.setLocalScale(new Vector3(scale0, scale0, scale0));  // set BEFORE setParent()
+              node0.setParent(anchorNode);
+              node0.setRenderable(stageRenderable);
+              node0.select();
+              stageDone=true;
+
+              anchor = hitResult.createAnchor();
+              anchorNode = new AnchorNode(anchor);
+              anchorNode.setParent(arFragment.getArSceneView().getScene());
+          }
+
           TransformableNode node = new TransformableNode(arFragment.getTransformationSystem());
-          float scale=1.0f;
+          float scale=.5f;
           node.setLocalScale(new Vector3(scale, scale, scale));  // set BEFORE setParent()
           node.setParent(anchorNode);
           node.setRenderable(sceneRenderable);
