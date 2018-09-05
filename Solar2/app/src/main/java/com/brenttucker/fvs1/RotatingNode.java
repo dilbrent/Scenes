@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.ar.sceneform.samples.solarsystem;
+package com.brenttucker.fvs1;
 
 import android.animation.ObjectAnimator;
 import android.support.annotation.Nullable;
@@ -30,12 +30,12 @@ public class RotatingNode extends Node {
   @Nullable private ObjectAnimator orbitAnimation = null;
   private float degreesPerSecond = 90.0f;
 
-  private final SolarSettings solarSettings;
+  private final MainSettings mainSettings;
   private final boolean isOrbit;
   private float lastSpeedMultiplier = 1.0f;
 
-  public RotatingNode(SolarSettings solarSettings, boolean isOrbit) {
-    this.solarSettings = solarSettings;
+  public RotatingNode(MainSettings mainSettings, boolean isOrbit) {
+    this.mainSettings = mainSettings;
     this.isOrbit = isOrbit;
   }
 
@@ -89,9 +89,9 @@ public class RotatingNode extends Node {
 
   private float getSpeedMultiplier() {
     if (isOrbit) {
-      return solarSettings.getOrbitSpeedMultiplier();
+      return mainSettings.getOrbitSpeedMultiplier();
     } else {
-      return solarSettings.getRotationSpeedMultiplier();
+      return mainSettings.getRotationSpeedMultiplier();
     }
   }
 

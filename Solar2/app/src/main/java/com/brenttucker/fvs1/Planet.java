@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.ar.sceneform.samples.solarsystem;
+package com.brenttucker.fvs1;
 
 import android.content.Context;
 import android.view.MotionEvent;
@@ -44,7 +44,7 @@ public class Planet extends Node implements Node.OnTapListener {
   private final String planetName;
   private final float planetScale;
   private final ModelRenderable planetRenderable;
-  private final SolarSettings solarSettings;
+  private final MainSettings mainSettings;
 
   private Node infoCard;
   private RotatingNode planetVisual;
@@ -57,12 +57,12 @@ public class Planet extends Node implements Node.OnTapListener {
       String planetName,
       float planetScale,
       ModelRenderable planetRenderable,
-      SolarSettings solarSettings) {
+      MainSettings mainSettings) {
     this.context = context;
     this.planetName = planetName;
     this.planetScale = planetScale;
     this.planetRenderable = planetRenderable;
-    this.solarSettings = solarSettings;
+    this.mainSettings = mainSettings;
     setOnTapListener(this);
   }
 
@@ -96,7 +96,7 @@ public class Planet extends Node implements Node.OnTapListener {
     }
 
     if (planetVisual == null) {
-      planetVisual = new RotatingNode(solarSettings, false);
+      planetVisual = new RotatingNode(mainSettings, false);
       planetVisual.setParent(this);
       planetVisual.setRenderable(planetRenderable);
       planetVisual.setLocalScale(new Vector3(planetScale, planetScale, planetScale));

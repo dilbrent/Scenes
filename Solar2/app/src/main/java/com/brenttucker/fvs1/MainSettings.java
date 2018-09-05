@@ -13,10 +13,10 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.google.ar.sceneform.samples.solarsystem;
+package com.brenttucker.fvs1;
 
 /** Planet rotation and speed settings */
-public class SolarSettings {
+public class MainSettings {
   private float orbitSpeedMultiplier = 1.0f;
   private float rotationSpeedMultiplier = 1.0f;
 
