@@ -1,18 +1,3 @@
-/*
- * Copyright 2018 Google LLC
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      http://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.brenttucker.fvs1;
 
 import android.content.Context;
@@ -81,7 +66,7 @@ public class Planet extends Node implements Node.OnTapListener {
       infoCard.setLocalPosition(new Vector3(0.0f, planetScale * INFO_CARD_Y_POS_COEFF, 0.0f));
 
       ViewRenderable.builder()
-          .setView(context, R.layout.planet_card_view)
+          .setView(context, R.layout.text_card_view)
           .build()
           .thenAccept(
               (renderable) -> {
