@@ -313,7 +313,7 @@ public class SolarActivity extends AppCompatActivity {
     Node solarControls = new Node();
     solarControls.setParent(sun);
     solarControls.setRenderable(solarControlsRenderable);
-    solarControls.setLocalPosition(new Vector3(0.0f, 0.25f, 0.0f));
+    solarControls.setLocalPosition(new Vector3(0.0f, 0.5f, 0.0f));
 
     View solarControlsView = solarControlsRenderable.getView();
     SeekBar orbitSpeedBar = solarControlsView.findViewById(R.id.orbitSpeedBar);
