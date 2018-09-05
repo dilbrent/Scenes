@@ -1,4 +1,9 @@
 {
+   bound_relative_root: {
+      x: 0.5,
+      y: 0,
+      z: 0.5,
+   },
    materials: [
       {
          name: "Earth_Clouds_mat",
@@ -15,6 +20,12 @@
                baseColor: "Earth_Clouds_mat_baseColor",
             },
             {
+               diffuseColorFactor: null,
+            },
+            {
+               diffuseColor: null,
+            },
+            {
                normal: null,
             },
             {
@@ -22,6 +33,18 @@
             },
             {
                roughnessFactor: 1,
+            },
+            {
+               specularFactor: null,
+            },
+            {
+               glossinessFactor: null,
+            },
+            {
+               specularGlossiness: null,
+            },
+            {
+               specularGlossinessCalculation: null,
             },
             {
                metallicRoughness: null,
@@ -41,7 +64,7 @@
                emissive: null,
             },
             {
-               reflectance: 0.5,
+               reflectance: null,
             },
             {
                opacity: null,
@@ -64,6 +87,12 @@
                baseColor: "Earth_Mat_baseColor",
             },
             {
+               diffuseColorFactor: null,
+            },
+            {
+               diffuseColor: null,
+            },
+            {
                normal: "Earth_Mat_normal",
             },
             {
@@ -71,6 +100,18 @@
             },
             {
                roughnessFactor: 1,
+            },
+            {
+               specularFactor: null,
+            },
+            {
+               glossinessFactor: null,
+            },
+            {
+               specularGlossiness: null,
+            },
+            {
+               specularGlossinessCalculation: null,
             },
             {
                metallicRoughness: "Earth_Mat_occlusionRoughnessMetallic",
@@ -90,7 +131,7 @@
                emissive: null,
             },
             {
-               reflectance: 0.5,
+               reflectance: null,
             },
             {
                opacity: null,
@@ -105,35 +146,15 @@
          "TexCoord",
          "Orientation",
       ],
+      collision: {},
       file: "sampledata/models/Earth/Earth.gltf",
       name: "Earth",
+      recenter: "root",
       scale: 0.5,
-      recenter: true,
-      suggested_collision: {
-         center: {
-            x: 0,
-            y: 0,
-            z: 0,
-         },
-         size: {
-            x: 1,
-            y: 1,
-            z: 1,
-         },
-         type: "Box",
-      },
    },
    samplers: [
       {
-         file: "sampledata/models/Earth/Earth_Mat_occlusionRoughnessMetallic.png",
-         name: "Earth_Mat_occlusionRoughnessMetallic",
-         params: {
-            usage_type: "Data",
-         },
-         pipeline_name: "Earth_Mat_occlusionRoughnessMetallic.png",
-      },
-      {
-         file: "sampledata/models/Earth/Earth_Mat_normal.png",
+         file: "sampledata/models/Earth\\Earth_Mat_normal.png",
          name: "Earth_Mat_normal",
          params: {
             usage_type: "Normal",
@@ -141,15 +162,23 @@
          pipeline_name: "Earth_Mat_normal.png",
       },
       {
-         file: "sampledata/models/Earth/Earth_Mat_baseColor.png",
+         file: "sampledata/models/Earth\\Earth_Clouds_mat_baseColor.png",
+         name: "Earth_Clouds_mat_baseColor",
+         pipeline_name: "Earth_Clouds_mat_baseColor.png",
+      },
+      {
+         file: "sampledata/models/Earth\\Earth_Mat_baseColor.png",
          name: "Earth_Mat_baseColor",
          pipeline_name: "Earth_Mat_baseColor.png",
       },
       {
-         file: "sampledata/models/Earth/Earth_Clouds_mat_baseColor.png",
-         name: "Earth_Clouds_mat_baseColor",
-         pipeline_name: "Earth_Clouds_mat_baseColor.png",
+         file: "sampledata/models/Earth\\Earth_Mat_occlusionRoughnessMetallic.png",
+         name: "Earth_Mat_occlusionRoughnessMetallic",
+         params: {
+            usage_type: "Data",
+         },
+         pipeline_name: "Earth_Mat_occlusionRoughnessMetallic.png",
       },
    ],
-   version: "0.51:1",
+   version: "0.52:1",
 }

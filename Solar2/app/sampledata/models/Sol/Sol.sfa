@@ -1,4 +1,9 @@
 {
+   bound_relative_root: {
+      x: 0.5,
+      y: 0,
+      z: 0.5,
+   },
    materials: [
       {
          name: "Sol_Opaque_Mat",
@@ -15,6 +20,12 @@
                baseColor: "Sol_Opaque_Mat_baseColor",
             },
             {
+               diffuseColorFactor: null,
+            },
+            {
+               diffuseColor: null,
+            },
+            {
                normal: null,
             },
             {
@@ -22,6 +33,18 @@
             },
             {
                roughnessFactor: 1,
+            },
+            {
+               specularFactor: null,
+            },
+            {
+               glossinessFactor: null,
+            },
+            {
+               specularGlossiness: null,
+            },
+            {
+               specularGlossinessCalculation: null,
             },
             {
                metallicRoughness: null,
@@ -41,7 +64,7 @@
                emissive: "Sol_Opaque_Mat_emissive",
             },
             {
-               reflectance: 0.5,
+               reflectance: null,
             },
             {
                opacity: null,
@@ -64,6 +87,12 @@
                baseColor: "SolarFlare_Transparent_Mat_baseColor",
             },
             {
+               diffuseColorFactor: null,
+            },
+            {
+               diffuseColor: null,
+            },
+            {
                normal: null,
             },
             {
@@ -71,6 +100,18 @@
             },
             {
                roughnessFactor: 1,
+            },
+            {
+               specularFactor: null,
+            },
+            {
+               glossinessFactor: null,
+            },
+            {
+               specularGlossiness: null,
+            },
+            {
+               specularGlossinessCalculation: null,
             },
             {
                metallicRoughness: null,
@@ -90,7 +131,7 @@
                emissive: "SolarFlare_Transparent_Mat_emissive",
             },
             {
-               reflectance: 0.5,
+               reflectance: null,
             },
             {
                opacity: null,
@@ -113,6 +154,12 @@
                baseColor: "Sol_Transparent_Mat_baseColor",
             },
             {
+               diffuseColorFactor: null,
+            },
+            {
+               diffuseColor: null,
+            },
+            {
                normal: null,
             },
             {
@@ -120,6 +167,18 @@
             },
             {
                roughnessFactor: 1,
+            },
+            {
+               specularFactor: null,
+            },
+            {
+               glossinessFactor: null,
+            },
+            {
+               specularGlossiness: null,
+            },
+            {
+               specularGlossinessCalculation: null,
             },
             {
                metallicRoughness: null,
@@ -139,7 +198,7 @@
                emissive: "Sol_Transparent_Mat_emissive",
             },
             {
-               reflectance: 0.5,
+               reflectance: null,
             },
             {
                opacity: null,
@@ -154,55 +213,43 @@
          "TexCoord",
          "Orientation",
       ],
+      collision: {},
       file: "sampledata/models/Sol/Sol.gltf",
       name: "Sol",
-      scale: 0.5,
-      recenter: true,
-      suggested_collision: {
-         center: {
-            x: 0,
-            y: 0,
-            z: 0,
-         },
-         size: {
-            x: 1,
-            y: 1,
-            z: 1,
-         },
-         type: "Box",
-      },
+      recenter: "root",
+      scale: 0.81201100000000004,
    },
    samplers: [
       {
-         file: "sampledata/models/Sol/Sol_Transparent_Mat_baseColor.png",
-         name: "Sol_Transparent_Mat_baseColor",
-         pipeline_name: "Sol_Transparent_Mat_baseColor.png",
-      },
-      {
-         file: "sampledata/models/Sol/SolarFlare_Transparent_Mat_baseColor.png",
-         name: "SolarFlare_Transparent_Mat_baseColor",
-         pipeline_name: "SolarFlare_Transparent_Mat_baseColor.png",
-      },
-      {
-         file: "sampledata/models/Sol/SolarFlare_Transparent_Mat_emissive.png",
-         name: "SolarFlare_Transparent_Mat_emissive",
-         pipeline_name: "SolarFlare_Transparent_Mat_emissive.png",
-      },
-      {
-         file: "sampledata/models/Sol/Sol_Opaque_Mat_baseColor.png",
+         file: "sampledata/models/Sol\\Sol_Opaque_Mat_baseColor.png",
          name: "Sol_Opaque_Mat_baseColor",
          pipeline_name: "Sol_Opaque_Mat_baseColor.png",
       },
       {
-         file: "sampledata/models/Sol/Sol_Transparent_Mat_emissive.png",
+         file: "sampledata/models/Sol\\Sol_Transparent_Mat_baseColor.png",
+         name: "Sol_Transparent_Mat_baseColor",
+         pipeline_name: "Sol_Transparent_Mat_baseColor.png",
+      },
+      {
+         file: "sampledata/models/Sol\\Sol_Opaque_Mat_emissive.png",
+         name: "Sol_Opaque_Mat_emissive",
+         pipeline_name: "Sol_Opaque_Mat_emissive.png",
+      },
+      {
+         file: "sampledata/models/Sol\\Sol_Transparent_Mat_emissive.png",
          name: "Sol_Transparent_Mat_emissive",
          pipeline_name: "Sol_Transparent_Mat_emissive.png",
       },
       {
-         file: "sampledata/models/Sol/Sol_Opaque_Mat_emissive.png",
-         name: "Sol_Opaque_Mat_emissive",
-         pipeline_name: "Sol_Opaque_Mat_emissive.png",
+         file: "sampledata/models/Sol\\SolarFlare_Transparent_Mat_baseColor.png",
+         name: "SolarFlare_Transparent_Mat_baseColor",
+         pipeline_name: "SolarFlare_Transparent_Mat_baseColor.png",
+      },
+      {
+         file: "sampledata/models/Sol\\SolarFlare_Transparent_Mat_emissive.png",
+         name: "SolarFlare_Transparent_Mat_emissive",
+         pipeline_name: "SolarFlare_Transparent_Mat_emissive.png",
       },
    ],
-   version: "0.51:1",
+   version: "0.52:1",
 }
